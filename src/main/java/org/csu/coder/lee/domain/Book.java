@@ -1,5 +1,6 @@
 package org.csu.coder.lee.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -7,6 +8,7 @@ import javax.persistence.Id;
 /**
  * Created by lixiang on 2017 09 23 22:57.
  */
+@Entity
 public class Book {
 
     @Id
