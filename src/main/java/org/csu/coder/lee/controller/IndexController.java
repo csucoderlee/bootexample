@@ -14,13 +14,16 @@ import java.util.Date;
 public class IndexController {
 
     @GetMapping("/index")
-    @ResponseBody
     public Object index(String api_name) {
         return "success";
     }
 
+    @GetMapping("/login")
+    public Object login(String api_name) {
+        return "login";
+    }
+
     @GetMapping("/user")
-    @ResponseBody
     public Object user(String api_name) {
         User user = new User().setId(111111L).setSex(false).setCreated(new Date());
         return user;
