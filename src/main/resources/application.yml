@@ -9,3 +9,5 @@ spring:
       ddl-auto: create
   main:
     show-banner: false
+  thymeleaf:
+    cache: false
