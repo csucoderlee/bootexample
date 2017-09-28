@@ -1,6 +1,6 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+#    driver-class-name: com.mysql.jdbc.Driver  boot会根据URL自动识别出所需要的驱动
     url: jdbc:mysql://127.0.0.1:3306/book?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull&amp;userSSL=true
     username: root
     password: csucoderlee
