@@ -6,7 +6,7 @@ spring:
     password: csucoderlee
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
   main:
     show-banner: false
   thymeleaf:

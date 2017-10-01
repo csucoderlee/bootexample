@@ -26,17 +26,21 @@ public class BookController {
         this.bookRepository = bookRepository;
     }
 
-    @RequestMapping(value = "/{reader}", method = RequestMethod.GET)
-    public String readerBooks(@PathVariable("reader") String reader, Model model) {
-        List<Book> readingList = bookRepository.findByReader(reader);
-        if (null != readingList) {
+    @RequestMapping(value="/{reader}", method=RequestMethod.GET)
+    public String readersBooks(
+            @PathVariable("reader") String reader,
+            Model model) {
+        List<Book> readingList =
+                bookRepository.findByReader(reader);
+        if (readingList != null) {
             model.addAttribute("books", readingList);
         }
         return "readingList";
     }
 
-    @RequestMapping(value = "/{reader}", method = RequestMethod.POST)
-    public String addToReadingList(@PathVariable("reader") String reader, Book book) {
+    @RequestMapping(value="/{reader}", method=RequestMethod.POST)
+    public String addToReadingList(
+            @PathVariable("reader") String reader, Book book) {
         book.setReader(reader);
         bookRepository.save(book);
         return "redirect:/{reader}";
