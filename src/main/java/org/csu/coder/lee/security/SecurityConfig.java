@@ -10,6 +10,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
+
+import javax.servlet.Filter;
 
 /**
  * Created by lixiang on 2017 09 26 14:52.
@@ -33,6 +36,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/login")
                     .failureUrl("/login?error=true");  //登录页和登录失败页（带有一个error属性）指定到了/login
+        //todo 如何关闭 csrf 这里需要注入一个securityfilterinterceptor
+        http
+                .addFilterBefore(null, FilterSecurityInterceptor.class).csrf().disable();
     }
 
     @Override
